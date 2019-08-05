@@ -27,9 +27,9 @@
 
    ```
    beego.NSNamespace("/main",
-   	beego.NSInclude(
-   		&controllers.MainController{},
-   	),
+       beego.NSInclude(
+           &controllers.MainController{},
+       ),
    ),
    ```
 
@@ -42,14 +42,21 @@
    	"github.com/astaxie/beego"
    )
 
-   // Operations about main
+   // Main Api Controller 这是模块注释
    type MainController struct {
    	beego.Controller
    }
 
-   // @router /hello {get}
+   // 应用注释
+   // @Title API所表达的含义
+   // @Description API详细的描述
+   // @param 参数名 参数类型1(formData 表示是 post 请求的数据; query 表示带在 url 之后的参数; path 表示请求路径上得参数; body 表示是一个 raw 数据请求; header 表示带在 header 信息中得参数) 参数字段类型 是否必须 注释
+   // @Param name query string false nameFiled
+   // @Success 200 {string} 成功返回给客户端的信息(三个参数:status_code {object/string/int等} 返回的对象或者字符串信息)
+   // @Failure 403 失败返回的信息(两个参数:status_code 错误信息)
+   // @router /hello [get]
    func (m *MainController) Hello() {
-   	m.Data["json"] = "Hello World!"
+   	m.Data["json"] = "Hello World! this is my one test api controller"
    	m.ServeJSON()
    }
    ```
