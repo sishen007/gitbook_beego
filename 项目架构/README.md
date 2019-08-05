@@ -13,6 +13,11 @@
 
    ![](/assets/beegoApi_dir.png)
 
-3. 
+3. #### 运行
+
+   ```
+   bee run  // 运行,如果提示cannot find package "github.com/shiena/ansicolor",安装一下即可
+   ```
+
 
 
