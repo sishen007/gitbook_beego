@@ -26,11 +26,35 @@
    #### ./beegoApi/routers/router.go 文件中的init方法中,用namespace方式注册控制器MainController：
 
    ```
-   beego.NSNamespace("/main",
-       beego.NSInclude(
-           &controllers.MainController{},
-       ),
-   ),
+   // @APIVersion 1.0.0
+   // @Title beegoApi
+   // @Description 这是一个beegoApi ApiDemo
+   // @Contact 646240358@qq.com
+   // @TermsOfServiceUrl http://beegoApi.test
+   // @License Apache 2.0
+   // @LicenseUrl http://www.apache.org/licenses/LICENSE-2.0.html
+   package routers
+
+   import (
+   	"beegoApi/controllers"
+
+   	"github.com/astaxie/beego"
+   )
+
+   func init() {
+   	// 路由可以多层嵌套
+   	// 但是自动化文档只支持二级解析,一级版本号,二级应用模块
+   	ns := beego.NewNamespace("/v1",
+   		beego.NSNamespace("/main",
+   			//beego.NSNamespace("/echo",
+   			beego.NSInclude(
+   				&controllers.MainController{},
+   			),
+   			//),
+   		),
+   	)
+   	beego.AddNamespace(ns)
+   }
    ```
 
    #### 创建新的控制器文件：./beegoApi/controllers/main.go：
@@ -39,12 +63,12 @@
    package controllers
 
    import (
-   	"github.com/astaxie/beego"
+       "github.com/astaxie/beego"
    )
 
    // Main Api Controller 这是模块注释
    type MainController struct {
-   	beego.Controller
+       beego.Controller
    }
 
    // 应用注释
@@ -56,8 +80,8 @@
    // @Failure 403 失败返回的信息(两个参数:status_code 错误信息)
    // @router /hello [get]
    func (m *MainController) Hello() {
-   	m.Data["json"] = "Hello World! this is my one test api controller"
-   	m.ServeJSON()
+       m.Data["json"] = "Hello World! this is my one test api controller"
+       m.ServeJSON()
    }
    ```
 
