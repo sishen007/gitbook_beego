@@ -3,5 +3,10 @@
     "author" : "wangyanhao",
     "description" : "针对Golang框架Beego的简单分享",
     "language" : "zh-hans",
-    "root": "."
+    "root": ".",
+    "links" : {
+        "sidebar" : {
+            "Home" : "http://ye.sishen007.xyz"
+        }
+    }
 }
