@@ -4,8 +4,9 @@
 
 ---
 
-1. #### Beego文档： [https://beego.me/docs/intro/](https://beego.me/docs/intro/)
-2. #### 源码资源：
+1. #### golang标准库: [https://studygolang.com/pkgdoc](https://studygolang.com/pkgdoc)
+2. #### Beego文档： [https://beego.me/docs/intro/](https://beego.me/docs/intro/)
+3. #### 源码资源：
 
 
 
