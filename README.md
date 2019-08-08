@@ -1,2 +1,7 @@
-# gitbook_beego
-Beego笔记
+# gitbook\_beego
+
+* [ ] Beego 第一期分享
+* [ ] Beego 第二期分享
+
+
+
